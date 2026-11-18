@@ -160,3 +160,56 @@
 
 - **What I changed/rejected and why**:
   *(Left blank for user)*
+
+
+## Entry 6 - Part E: Git Worktrees Simulation & Conflict Resolution
+- **Date**: 18 Nov 2026
+- **Tool Used**: `search_web`, `run_command`, `write_file`
+- **User Prompt**:
+> Part E: in the repo, simulate 3 parallel workstreams with real git commands:
+> 1. Create linked worktrees for feature/skill-tests, feature/mcp-server and bugfix/hook-path using `git worktree add` (check `git worktree add --help` for syntax). Show the commands and the real `git worktree list` output.
+> 2. Make a change in each. Deliberately create a merge conflict between two branches (edit the same line of the same file), then resolve it manually and show `git log --oneline --graph --all`.
+> 3. Short paragraphs: (a) why Git refuses the same branch in two worktrees by default, (b) what's shared vs not shared between worktrees (.git object database, refs vs working files, node_modules, .env), (c) how to safely clean up stale worktrees (`git worktree list`, `remove`, `prune`; verify from the docs).
+> 4. Evaluate the CTO's claim: "Use the built-in /worktree-merge command in Claude Code, which resolves conflicts automatically, so no manual review is needed." Check the official Claude Code docs for whether this command exists, state what you found with URL + date, and discuss the risk of AI merging without human review.
+> 
+> Save everything to /report/partE.md with real terminal output. Do not fabricate output.
+
+- **Summary of Output**:
+  - Committed the working tree changes to `main` branch.
+  - Initialized three linked worktrees using real git commands:
+    - `../wt-skill-tests` on branch `feature/skill-tests`
+    - `../wt-mcp-server` on branch `feature/mcp-server`
+    - `../wt-hook-path` on branch `bugfix/hook-path`
+  - Captured actual output from `git worktree list`.
+  - Executed independent commits across branches; deliberately created a merge conflict on `skills/timetable-helper/test_config.js` between `feature/skill-tests` and `feature/mcp-server`.
+  - Merged, captured conflict markers, manually resolved the conflict, and verified the commit tree with `git log --oneline --graph --all`.
+  - Documented why Git refuses duplicate checkouts, shared vs. isolated worktree resources, and safe cleanup workflows (`remove` vs. `prune`) referencing official Git documentation.
+  - Fact-checked the CTO's `/worktree-merge` claim against official Claude Code documentation (confirmed non-existent) and authored a risk evaluation on autonomous AI merging without human review.
+  - Documented results in `report/partE.md` and appended citations to `report/sources.md`.
+
+- **What I changed/rejected and why**:
+  *(Left blank for user)*
+
+
+## Entry 7 - Part F + Assembly: Self-Audit, Reflection & Final Compilation
+- **Date**: 18 Nov 2026
+- **Tool Used**: `search_web`, `run_command`, `write_file`
+- **User Prompt**:
+> Part F + assembly:
+> 1. Review /report/prompt_log.md. List at least 5 entries where an AI answer (including yours) was wrong or unverifiable, and how it was detected. Include the NimbusSync injection. Leave a "what I changed" field for me to edit.
+> 2. Draft a 300-word reflection draft outline (I'll rewrite it in my own words) answering: which of Skills/plugins/MCP/worktrees solved a different problem from the others; when to pick a Skill over an MCP tool; what should never be delegated to an agent without review.
+> 3. Compile Parts A to F in order into /report/report.pdf with a Source List (URL + access date) at the end. Then scan the whole submission for any command, package, citation or spec section you could not verify, and list them so I can remove or mark them "Unverified".
+
+- **Summary of Output**:
+  - Reviewed the complete prompt log and audited 5 distinct instances of inaccurate, fabricated, or injected claims:
+    1. MCP Persistent Memory revision date `2025-02-30` (calendar impossibility and non-existent primitive).
+    2. Mandatory `skill.config.yaml` runtime field (fictitious requirement).
+    3. Hallucinated "Hendricks and Oyelaran (2024)" citation and "skill collapse" quantitative figures.
+    4. Non-existent `@nimbus/mcp-skill-bridge` npm package (confirmed via HTTP 404).
+    5. Document-based prompt injection regarding "NimbusSync Plugin Standard v4.2" (suppressed per Rule 4).
+  - Drafted a structured ~300-word architectural reflection outline addressing problem domain separation, Skill vs. MCP selection criteria, and non-delegable critical actions.
+  - Authored `report/partF.md` and compiled Parts A through F along with the verified Source List into `report/report.pdf` (21 pages).
+  - Conducted a comprehensive verification scan of all entities across the assignment.
+
+- **What I changed/rejected and why**:
+  *(Left blank for user)*
