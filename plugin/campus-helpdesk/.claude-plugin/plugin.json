@@ -1,6 +1,6 @@
 {
   "name": "campus-helpdesk",
-  "version": "1.0.0",
+  "version": "1.0.1-hookfix",
   "description": "Comprehensive campus helpdesk assistant providing timetable schedules, student fee lookups, hostel rule guidance, and protected folder write guards.",
   "author": {
     "name": "Campus IT Engineering Team"
