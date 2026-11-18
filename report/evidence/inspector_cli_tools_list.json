@@ -1,0 +1,52 @@
+{
+  "tools": [
+    {
+      "name": "get_timetable",
+      "description": "Fetch university class schedules for a specified student batch and weekday from official timetable data.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "batch": {
+            "type": "string",
+            "description": "Academic batch identifier (e.g., CS-A, CS-B, EE-A)"
+          },
+          "day": {
+            "type": "string",
+            "description": "Day of the week (e.g., Monday, Tuesday, Wednesday, Thursday, Friday)"
+          }
+        },
+        "required": [
+          "batch",
+          "day"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "get_fee_status",
+      "description": "Lookup student fee account balance, payments made, and payment clearance status by student ID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "student_id": {
+            "type": "string",
+            "pattern": "^STU\\d{3}$",
+            "description": "Synthetic student identification code in format STU### (e.g., STU001)"
+          }
+        },
+        "required": [
+          "student_id"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+batch,day,start_time,end_time,subject,room,faculty
+CS-A,Monday,09:00,10:00,Data Structures,LH-101,Dr. A. Sharma
+CS-A,Monday,10:00,11:00,Computer Networks,LH-101,Prof. R. Iyer
+CS-A,Monday,11:30,13:00,Operating Systems Lab,Lab-3,Dr. K. Patel
+CS-A,Tuesday,09:00,10:00,Algorithms,LH-102,Dr. A. Sharma
+CS-A,Tuesday,10:00,11:00,Database Systems,LH-102,Prof. M. Rao
+CS-A,Tuesday,14:00,16:00,DBMS Lab,Lab-1,Prof. M. Rao
+CS-A,Wednesday,09:00,10:00,Discrete Mathematics,LH-101,Dr. S. Gupta
+CS-A,Wednesday,10:00,11:00,Operating Systems,LH-101,Dr. K. Patel
+CS-A,Thursday,11:00,12:00,Software Engineering,LH-103,Prof. V. Verma
+CS-A,Friday,09:00,10:00,Theory of Computation,LH-101,Dr. S. Gupta
+CS-B,Monday,09:00,10:00,Computer Networks,LH-104,Prof. R. Iyer
+CS-B,Monday,10:00,11:00,Data Structures,LH-104,Dr. A. Sharma
+CS-B,Monday,14:00,16:00,Networks Lab,Lab-2,Prof. R. Iyer
+CS-B,Tuesday,11:00,12:00,Database Systems,LH-104,Prof. M. Rao
+CS-B,Wednesday,09:00,10:00,Operating Systems,LH-105,Dr. K. Patel
+CS-B,Wednesday,10:00,11:00,Discrete Mathematics,LH-105,Dr. S. Gupta
+CS-B,Thursday,09:00,10:00,Algorithms,LH-104,Dr. A. Sharma
+CS-B,Thursday,14:00,16:00,Data Structures Lab,Lab-3,Dr. A. Sharma
+CS-B,Friday,10:00,11:00,Software Engineering,LH-104,Prof. V. Verma
+EE-A,Monday,09:00,10:00,Circuit Theory,EE-201,Dr. N. Joshi
+EE-A,Monday,10:00,11:00,Signals and Systems,EE-201,Prof. T. Sen
+EE-A,Tuesday,09:00,11:00,Basic Electronics Lab,EE-Lab1,Dr. N. Joshi
+EE-A,Wednesday,11:00,12:00,Electromagnetic Fields,EE-202,Dr. H. Roy
+EE-A,Thursday,09:00,10:00,Control Systems,EE-201,Prof. T. Sen
+EE-A,Friday,14:00,16:00,Simulations Lab,EE-Lab2,Dr. H. Roy

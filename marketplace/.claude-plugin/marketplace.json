@@ -1,0 +1,19 @@
+{
+  "name": "campus-marketplace",
+  "description": "Official campus IT toolchain and academic services plugin marketplace.",
+  "owner": {
+    "name": "University IT Systems"
+  },
+  "plugins": [
+    {
+      "name": "campus-helpdesk",
+      "description": "Comprehensive campus helpdesk assistant providing timetable schedules, student fee lookups, hostel rule guidance, and protected folder write guards.",
+      "version": "1.0.0",
+      "source": {
+        "type": "directory",
+        "path": "./plugin/campus-helpdesk"
+      },
+      "tags": ["helpdesk", "timetable", "fees", "security-hooks", "mcp"]
+    }
+  ]
+}

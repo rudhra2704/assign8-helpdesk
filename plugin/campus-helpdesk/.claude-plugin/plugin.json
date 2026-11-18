@@ -1,0 +1,30 @@
+{
+  "name": "campus-helpdesk",
+  "version": "1.0.0",
+  "description": "Comprehensive campus helpdesk assistant providing timetable schedules, student fee lookups, hostel rule guidance, and protected folder write guards.",
+  "author": {
+    "name": "Campus IT Engineering Team"
+  },
+  "engines": {
+    "claude-code": ">=1.0.0"
+  },
+  "commands": [
+    {
+      "name": "check-timetable",
+      "description": "Query the university timetable for a specific batch and weekday.",
+      "file": "commands/check-timetable.md"
+    }
+  ],
+  "skills": [
+    "skills/timetable-helper"
+  ],
+  "hooks": "hooks/hooks.json",
+  "mcpServers": {
+    "campus-helpdesk-mcp": {
+      "command": "node",
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/../../mcp-server/index.js"
+      ]
+    }
+  }
+}

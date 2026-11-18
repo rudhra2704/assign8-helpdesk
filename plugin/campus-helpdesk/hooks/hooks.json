@@ -1,0 +1,13 @@
+{
+  "PreToolUse": [
+    {
+      "matcher": "write_file|edit_file|Write|Edit|Bash|run_command",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "\"$CLAUDE_PLUGIN_ROOT\"/hooks/guard_protected_folder.py"
+        }
+      ]
+    }
+  ]
+}

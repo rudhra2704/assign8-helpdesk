@@ -1,0 +1,292 @@
+[
+  {
+    "direction": "client -> server",
+    "data": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "initialize",
+      "params": {
+        "protocolVersion": "2024-11-05",
+        "capabilities": {
+          "roots": {
+            "listChanged": true
+          }
+        },
+        "clientInfo": {
+          "name": "mcp-test-harness",
+          "version": "1.0.0"
+        }
+      }
+    }
+  },
+  {
+    "direction": "server -> client",
+    "data": {
+      "result": {
+        "protocolVersion": "2024-11-05",
+        "capabilities": {
+          "tools": {
+            "listChanged": true
+          },
+          "resources": {
+            "listChanged": true
+          }
+        },
+        "serverInfo": {
+          "name": "campus-helpdesk-mcp",
+          "version": "1.0.0"
+        }
+      },
+      "jsonrpc": "2.0",
+      "id": 1
+    }
+  },
+  {
+    "direction": "client -> server",
+    "data": {
+      "jsonrpc": "2.0",
+      "method": "notifications/initialized"
+    }
+  },
+  {
+    "direction": "client -> server",
+    "data": {
+      "jsonrpc": "2.0",
+      "id": 2,
+      "method": "tools/list",
+      "params": {}
+    }
+  },
+  {
+    "direction": "server -> client",
+    "data": {
+      "result": {
+        "tools": [
+          {
+            "name": "get_timetable",
+            "description": "Fetch university class schedules for a specified student batch and weekday from official timetable data.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "batch": {
+                  "type": "string",
+                  "description": "Academic batch identifier (e.g., CS-A, CS-B, EE-A)"
+                },
+                "day": {
+                  "type": "string",
+                  "description": "Day of the week (e.g., Monday, Tuesday, Wednesday, Thursday, Friday)"
+                }
+              },
+              "required": [
+                "batch",
+                "day"
+              ],
+              "additionalProperties": false,
+              "$schema": "http://json-schema.org/draft-07/schema#"
+            },
+            "execution": {
+              "taskSupport": "forbidden"
+            }
+          },
+          {
+            "name": "get_fee_status",
+            "description": "Lookup student fee account balance, payments made, and payment clearance status by student ID.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "student_id": {
+                  "type": "string",
+                  "pattern": "^STU\\d{3}$",
+                  "description": "Synthetic student identification code in format STU### (e.g., STU001)"
+                }
+              },
+              "required": [
+                "student_id"
+              ],
+              "additionalProperties": false,
+              "$schema": "http://json-schema.org/draft-07/schema#"
+            },
+            "execution": {
+              "taskSupport": "forbidden"
+            }
+          }
+        ]
+      },
+      "jsonrpc": "2.0",
+      "id": 2
+    }
+  },
+  {
+    "direction": "client -> server",
+    "data": {
+      "jsonrpc": "2.0",
+      "id": 3,
+      "method": "resources/list",
+      "params": {}
+    }
+  },
+  {
+    "direction": "server -> client",
+    "data": {
+      "result": {
+        "resources": [
+          {
+            "uri": "campus://policies/hostel-rules",
+            "name": "hostel_rules",
+            "description": "Official Campus Hostel Rules, Curfew Regulations, Visitor Policy, and Medical Contacts",
+            "mimeType": "text/markdown"
+          }
+        ]
+      },
+      "jsonrpc": "2.0",
+      "id": 3
+    }
+  },
+  {
+    "direction": "client -> server",
+    "data": {
+      "jsonrpc": "2.0",
+      "id": 4,
+      "method": "resources/read",
+      "params": {
+        "uri": "campus://policies/hostel-rules"
+      }
+    }
+  },
+  {
+    "direction": "server -> client",
+    "data": {
+      "result": {
+        "contents": [
+          {
+            "uri": "campus://policies/hostel-rules",
+            "text": "# Campus Hostel Rules and Regulations (Academic Year 2026-2027)\n\n## 1. General Conduct\n- All residents must maintain discipline, academic decorum, and mutual respect within the hostel premises.\n- Ragging or harassment of any form is strictly prohibited under zero-tolerance campus policy.\n- Quiet study hours are observed daily from 22:00 to 06:00. Loud music or disruptive noise is prohibited during these hours.\n\n## 2. Curfew and Biometric Entry\n- The hostel main gates close at 22:30 on weekdays (Sunday through Thursday) and 23:00 on Fridays and Saturdays.\n- Residents returning after curfew must produce valid warden authorization and log their entry with security.\n- Biometric check-in is mandatory before 22:30.\n\n## 3. Visitors and Guests\n- Day visitors are permitted in designated ground-floor visitor lounges between 09:00 and 18:00 only.\n- Overnight stay of non-residents or unauthorized guests is strictly forbidden.\n- Violations incur a fine of 2,500 INR and disciplinary review.\n\n## 4. Room Maintenance and Electrical Appliances\n- High-power electrical appliances (electric heaters, induction cooktops, immersion coils) are prohibited in student rooms for fire safety.\n- Room inventory and furniture must not be altered, removed, or painted.\n\n## 5. Grievances and Medical Assistance\n- Emergency medical desk: Health Center Ext. 4444 (24/7 on call).\n- Hostel warden contact: warden-hostel@campus.edu (Office: Ground Floor, Block B).\n",
+            "mimeType": "text/markdown"
+          }
+        ]
+      },
+      "jsonrpc": "2.0",
+      "id": 4
+    }
+  },
+  {
+    "direction": "client -> server",
+    "data": {
+      "jsonrpc": "2.0",
+      "id": 5,
+      "method": "tools/call",
+      "params": {
+        "name": "get_timetable",
+        "arguments": {
+          "batch": "CS-A",
+          "day": "Tuesday"
+        }
+      }
+    }
+  },
+  {
+    "direction": "server -> client",
+    "data": {
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "[\n  {\n    \"batch\": \"CS-A\",\n    \"day\": \"Tuesday\",\n    \"start_time\": \"09:00\",\n    \"end_time\": \"10:00\",\n    \"subject\": \"Algorithms\",\n    \"room\": \"LH-102\",\n    \"faculty\": \"Dr. A. Sharma\"\n  },\n  {\n    \"batch\": \"CS-A\",\n    \"day\": \"Tuesday\",\n    \"start_time\": \"10:00\",\n    \"end_time\": \"11:00\",\n    \"subject\": \"Database Systems\",\n    \"room\": \"LH-102\",\n    \"faculty\": \"Prof. M. Rao\"\n  }\n]"
+          }
+        ]
+      },
+      "jsonrpc": "2.0",
+      "id": 5
+    }
+  },
+  {
+    "direction": "client -> server",
+    "data": {
+      "jsonrpc": "2.0",
+      "id": 6,
+      "method": "tools/call",
+      "params": {
+        "name": "get_fee_status",
+        "arguments": {
+          "student_id": "STU001"
+        }
+      }
+    }
+  },
+  {
+    "direction": "server -> client",
+    "data": {
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"student_id\": \"STU001\",\n  \"name\": \"Student Alpha\",\n  \"program\": \"B.Tech CSE\",\n  \"tuition_total\": 120000,\n  \"tuition_paid\": 120000,\n  \"balance_due\": 0,\n  \"status\": \"CLEAR\",\n  \"dueDate\": null\n}"
+          }
+        ]
+      },
+      "jsonrpc": "2.0",
+      "id": 6
+    }
+  },
+  {
+    "direction": "client -> server",
+    "data": {
+      "jsonrpc": "2.0",
+      "id": 7,
+      "method": "tools/call",
+      "params": {
+        "name": "get_fee_status",
+        "arguments": {
+          "student_id": "STU999"
+        }
+      }
+    }
+  },
+  {
+    "direction": "server -> client",
+    "data": {
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Account Error: Student ID 'STU999' was not found in the student accounts database. Ensure ID follows format STU###."
+          }
+        ],
+        "isError": true
+      },
+      "jsonrpc": "2.0",
+      "id": 7
+    }
+  },
+  {
+    "direction": "client -> server",
+    "data": {
+      "jsonrpc": "2.0",
+      "id": 8,
+      "method": "tools/call",
+      "params": {
+        "name": "get_timetable",
+        "arguments": {
+          "batch": "INVALID_BATCH",
+          "day": "Monday"
+        }
+      }
+    }
+  },
+  {
+    "direction": "server -> client",
+    "data": {
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Validation Error: Unknown or unlisted batch 'INVALID_BATCH'. Valid mock batches are: CS-A, CS-B, EE-A."
+          }
+        ],
+        "isError": true
+      },
+      "jsonrpc": "2.0",
+      "id": 8
+    }
+  }
+]
