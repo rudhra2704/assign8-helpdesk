@@ -1,0 +1,1 @@
+export const TEST_MODE = 'MCP_LIVE_INTEGRATION_V2';
